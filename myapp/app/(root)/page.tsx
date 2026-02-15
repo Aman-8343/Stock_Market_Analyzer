@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div className="flex min-h-screen home-wrapper">
            home
-        </div>k
+        </div>
     )
 }
 export default Home
