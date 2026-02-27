@@ -4,6 +4,16 @@ import React, { useEffect, useRef, memo } from 'react';
 function TradingViewWidget() {
     const container = useRef(null);
 
+
+
+    interface TradingViewWidgetProps {
+        title?: string;
+        scriptUrl: string;
+        config: Record<string, unknown>;
+        height?: number;
+        className?: string;
+    }
+
     useEffect(
         () => {
             const script = document.createElement("script");
