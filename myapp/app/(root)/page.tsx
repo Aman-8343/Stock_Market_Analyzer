@@ -2,7 +2,7 @@ import {Button} from "@/components/ui/button";
 import MARKET_OVERVIEW_WIDGET_CONFIG from "@/lib/constants";
 
 const Home = () => {
-    const scriptUrl = `https://s3.tradingview.com/external-embedding/embed-widget-`;
+    const scriptUrl = `https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js`;
 
     return (
         <section className="grid w-full gap-8 home-section">
