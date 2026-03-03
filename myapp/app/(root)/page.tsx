@@ -1,4 +1,5 @@
 import TradingViewWidget from "@/components/TradingViewWidget";
+import {MARKET_OVERVIEW_WIDGET_CONFIG} from "@/lib/constants";
 
 const Home = () => {
     const scriptUrl = `https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js`;
@@ -10,7 +11,7 @@ const Home = () => {
                 <TradingViewWidget
                     title="Market Overview"
                     scriptUrl={`${scriptUrl}market-overview.js`}
-                    // config={MARKET_OVERVIEW_WIDGET_CONFIG}
+                    config={MARKET_OVERVIEW_WIDGET_CONFIG}
                     className="custom-chart"
                     height={600}
                 />
