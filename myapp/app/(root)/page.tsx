@@ -8,6 +8,7 @@ import {
 
 const Home = () => {
     const scriptUrl = `https://s3.tradingview.com/external-embedding/embed-widget-`;
+    // https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js
 
     return (
         <div className="flex min-h-screen home-wrapper">
@@ -24,7 +25,7 @@ const Home = () => {
                 <div className="md-col-span xl:col-span-2">
                     <TradingViewWidget
                         title="Stock Heatmap"
-                        scriptUrl={`${scriptUrl}stock-heatmap.js`}
+                        scriptUrl={`${scriptUrl}crypto-coins-heatmap.js`}
                         config={HEATMAP_WIDGET_CONFIG}
                         height={600}
                     />
