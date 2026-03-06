@@ -38,7 +38,7 @@ export const CONDITION_OPTIONS = [
 
 // TradingView Charts
 export const MARKET_OVERVIEW_WIDGET_CONFIG = {
-   g // dark mode
+    colorTheme: 'dark', // dark mode
     dateRange: '12M', // last 12 months
     locale: 'en', // language
     largeChartUrl: '', // link to a large chart if needed
