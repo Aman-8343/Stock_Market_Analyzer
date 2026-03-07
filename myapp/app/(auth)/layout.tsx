@@ -1,10 +1,15 @@
+import Link from "next/link";
+import Image from "next/image";
+
 const Layout = ({children} : {children:React.ReactNode}) => {
     return (
-        <main className="min-h-screen text-gray-300">
-            <Header/>
-            <div className="container py-10">
-                {children}
-            </div>
+        <main className="auth-layout">
+            <section className="auth-left-section scollbar-hide-default">
+                <Link href='/' className="auth-logo">
+                    <Image src="/assests/icon/logo.svg" alt="logo" /
+                </Link>
+            </section>
+
         </main>
     )
 }
