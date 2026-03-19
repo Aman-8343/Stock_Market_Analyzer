@@ -1,52 +1,62 @@
-import React from 'react'
+use client';
+
+import { useForm } from 'react-hook-form';
+import { Button } from '@/components/ui/button';
+import InputField from '@/components/forms/InputField';
+import FooterLink from '@/components/forms/FooterLink';
 
 const SignIn = () => {
-    return (
-       class Solution {
-public:
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+    } = useForm<SignInFormData>({
+        defaultValues: {
+            email: '',
+            password: '',
+        },
+        mode: 'onBlur',
+    });
 
-    struct Info {
-        bool isBST;
-        int size;
-        int minVal;
-        int maxVal;
+    const onSubmit = async (data: SignInFormData) => {
+        try {
+            console.log('Sign in', data);
+        } catch (e) {
+            console.error(e);
+        }
     };
 
-    Info solve(Node* root) {
+    return (
+        <>
+            <h1 className="form-title">Welcome back</h1>
 
-        // Base case: empty tree is BST
-        if (!root)
-            return {true, 0, INT_MAX, INT_MIN};
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <InputField
+                    name="email"
+                    label="Email"
+                    placeholder="contact@jsmastery.com"
+                    register={register}
+                    error={errors.email}
+                    validation={{ required: 'Email is required', pattern: /^\w+@\w+\.\w+$/ }}
+                />
 
-        Info left = solve(root->left);
-        Info right = solve(root->right);
+                <InputField
+                    name="password"
+                    label="Password"
+                    placeholder="Enter your password"
+                    type="password"
+                    register={register}
+                    error={errors.password}
+                    validation={{ required: 'Password is required', minLength: 8 }}
+                />
 
-        // Check BST condition
-        if (left.isBST && right.isBST &&
-            root->data > left.maxVal &&
-            root->data < right.minVal) {
+                <Button type="submit" disabled={isSubmitting} className="yellow-btn w-full mt-5">
+                    {isSubmitting ? 'Signing In' : 'Sign In'}
+                </Button>
 
-            return {
-                true,
-                left.size + right.size + 1,
-                min(root->data, left.minVal),
-                max(root->data, right.maxVal)
-            };
-        }
-
-        // Not BST → take largest BST size from children
-        return {
-            false,
-            max(left.size, right.size),
-            INT_MIN,
-            INT_MAX
-        };
-    }
-
-    int largestBst(Node *root) {
-        return solve(root).size;
-    }
+                <FooterLink text="Don't have an account?" linkText="Create an account" href="/sign-up" />
+            </form>
+        </>
+    );
 };
-    )
-}
-export default SignIn
+export default SignIn;
